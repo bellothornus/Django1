@@ -56,7 +56,7 @@ ROOT_URLCONF = 'comentarios.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'comentarios/templates')],
+        'DIRS': [os.path.join(BASE_DIR,'comentarios',BASE_DIR, 'mensajes')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

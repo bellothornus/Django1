@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Posts</title>
+    </head>
+    <body>
+        
+        {% if comentarios %}
+            {% for comentario in comentarios%}
+                <h2>{{comentario.nombre}}</h2>
+                <h3>{{comentario.asunto}}</h3>
+                <p>{{comentario.comentario}}</p>
+            {% endfor %}
+        {% else %}
+            <h3>No encontramos comentarios :(</h3>
+        {% endif %}
+
+    <h2>{{gracias}}</h2>
+    <form action="/Post/{{post.id}}" method="POST"> {% csrf_token %}
+
+        <p>Nombre: <input type="text" name="nombre"></p>
+        <p>Asunto: <input type="text" name="asunto"></p>
+        <p>Comentario <textarea cols="45" rows="15" name="comentario"></textarea></p>
+        <input style="display:none;" type="text" value="{{post.id}}" name="post_id">
+        
+        <input type="submit" value="Enviar">
+    </form>
+        <a href="/index/">Volver a la página principal</a>
+    </body>
+</html>

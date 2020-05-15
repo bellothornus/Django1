@@ -1,0 +1,11 @@
+{% extends "templates/base.html"%}
+{% block comentarios_form %}
+    <h2>{{gracias}}</h2>
+    <form action="/Post/{{post.id}}" method="POST"> {% csrf_token %}
+
+        <p>Nombre: <input type="text" name="nombre"></p>
+        <p>Asunto: <input type="text" name="asunto"></p>
+        <p>Comentario <textarea cols="45" rows="15" name="comentario"></textarea></p>
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock %}

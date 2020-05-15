@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Lista de Posts</title>
+    </head>
+    <body>
+        {% if posts %}
+            {% for post in posts %}
+            <a href="/Post/{{post.id}}">Post: {{post.asunto}}</a>
+            {% endfor %}
+        {% else %}
+            <h2>No se han encontrado nuevos posts</h2>
+        {% endif %}
+    </body>
+</html>
