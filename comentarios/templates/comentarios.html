@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>Comentarios</title>
+    </head>
+    <body>
+        <h2>{{gracias}}</h2>
+        <form action="/comentarios/" method="POST"> {% csrf_token %}
+        
+            <p>Nombre: <input type="text" name="nombre"></p>
+            <p>Asunto: <input type="text" name="asunto"></p>
+            <p>Comentario <textarea cols="45" rows="15" name="comentario"></textarea></p>
+            <input type="submit" value="Enviar">
+
+        </form>
+    </body>
+</html>
