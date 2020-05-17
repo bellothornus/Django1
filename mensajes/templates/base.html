@@ -3,25 +3,45 @@
         <title>Posts</title>
     </head>
     <body>
-        
-        {% if comentarios %}
-            {% for comentario in comentarios%}
-                <h2>{{comentario.nombre}}</h2>
-                <h3>{{comentario.asunto}}</h3>
-                <p>{{comentario.comentario}}</p>
-            {% endfor %}
-        {% else %}
-            <h3>No encontramos comentarios :(</h3>
-        {% endif %}
+        <style>
+            div.sangria h1, div.sangria h2, div.sangria, h3{
+                margin-left: 30px;
+            }
+            form{
+                margin-top: 5%;
+            }
+        </style>
+        <h1 >Post:</h1>
+        <div class="sangria">
+            {% if post  %}
+                <h1>{{post.autor}}</h1>
+                <h2>{{post.asunto}}</h2>
+                <p>{{post.post}}</p>
+            {% endif %}
+        </div>
+        <br>
+        <h1 >Comentarios:</h1>
+        <div class="sangria">
+            {% if comentarios %}
+                {% for comentario in comentarios%}
+                    <h2>{{comentario.nombre}}</h2>
+                    <h3>{{comentario.asunto}}</h3>
+                    <p>{{comentario.comentario}}</p>
+                {% endfor %}
+            {% else %}
+                <h3>No encontramos comentarios :(</h3>
+            {% endif %}
+        </div>
 
     <h2>{{gracias}}</h2>
     <form action="/Post/{{post.id}}" method="POST"> {% csrf_token %}
 
         <p>Nombre: <input type="text" name="nombre"></p>
         <p>Asunto: <input type="text" name="asunto"></p>
-        <p>Comentario <textarea cols="45" rows="15" name="comentario"></textarea></p>
+        <p>Comentario: </p>
+            <textarea cols="45" rows="15" name="comentario"></textarea>
         <input style="display:none;" type="text" value="{{post.id}}" name="post_id">
-        
+        <br>
         <input type="submit" value="Enviar">
     </form>
         <a href="/index/">Volver a la página principal</a>
